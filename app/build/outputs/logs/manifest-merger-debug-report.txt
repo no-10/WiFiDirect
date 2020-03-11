@@ -1,0 +1,165 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:2:1-47:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\d5d5e0afb6d849720ba2f95b3e39fcb5\support-core-utils-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\1b9d515d8d1965c403de8914ca55cb7e\loader-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\4e7b3bbed8e6e29e2ba6d4fc6e8eccff\support-compat-28.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\1938455035f0a35aa3eefef3aa9fbbc4\documentfile-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\1dc9df8e70a38f62679d702ec717a6a9\localbroadcastmanager-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\4fd4a6ed80eb447e76c05986ef3fd6a1\print-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\d107c5806233895e5be684de327d381f\versionedparcelable-28.0.0\AndroidManifest.xml:17:1-25:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\0160f619c43aa1ecd28ae91ba8993552\runtime-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\823f37c489bd02c4a4d0f6ca442a27d7\viewmodel-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\f33d666ad8cee70ee4e661f9bad8e372\livedata-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\85526c118dcfe3eae0cf402e2cecc572\livedata-core-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\5853616defd81755613306a8befefe63\runtime-1.1.1\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:2:1-47:12
+	package
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:2:70-110
+		INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:3:29-54
+		INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:3:5-28
+		INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:6:5-76
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:6:22-73
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:7:5-76
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:7:22-73
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:8:22-76
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:9:5-67
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:9:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:10:22-76
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:11:5-75
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:11:22-72
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:12:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:13:22-76
+uses-feature#android.hardware.wifi.direct
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:16:5-88
+	android:required
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:16:63-86
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:16:19-62
+application
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:18:5-46:19
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\4e7b3bbed8e6e29e2ba6d4fc6e8eccff\support-compat-28.0.0\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\4e7b3bbed8e6e29e2ba6d4fc6e8eccff\support-compat-28.0.0\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\d107c5806233895e5be684de327d381f\versionedparcelable-28.0.0\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\d107c5806233895e5be684de327d381f\versionedparcelable-28.0.0\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\4e7b3bbed8e6e29e2ba6d4fc6e8eccff\support-compat-28.0.0\AndroidManifest.xml:22:18-91
+	android:label
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:20:9-41
+	android:icon
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:19:9-45
+	android:theme
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:21:9-50
+activity#com.example.android.wifidirect.WiFiDirectActivity
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:22:9-31:20
+	android:label
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:24:13-45
+	android:launchMode
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:24:46-77
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:23:13-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:25:13-30:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:26:17-27:65
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:27:21-62
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:28:17-29:71
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:29:21-68
+provider#android.support.v4.content.FileProvider
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:33:9-41:20
+	android:grantUriPermissions
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:37:13-47
+	android:authorities
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:35:13-78
+	android:exported
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:36:13-37
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:34:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:38:13-40:58
+	android:resource
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:40:17-55
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:39:17-67
+service#com.example.android.wifidirect.FileTransferService
+ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:44:9-79
+	android:enabled
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:44:18-40
+	android:name
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:44:41-76
+uses-sdk
+INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\d5d5e0afb6d849720ba2f95b3e39fcb5\support-core-utils-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\d5d5e0afb6d849720ba2f95b3e39fcb5\support-core-utils-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\1b9d515d8d1965c403de8914ca55cb7e\loader-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\1b9d515d8d1965c403de8914ca55cb7e\loader-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\4e7b3bbed8e6e29e2ba6d4fc6e8eccff\support-compat-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\4e7b3bbed8e6e29e2ba6d4fc6e8eccff\support-compat-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\1938455035f0a35aa3eefef3aa9fbbc4\documentfile-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\1938455035f0a35aa3eefef3aa9fbbc4\documentfile-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\1dc9df8e70a38f62679d702ec717a6a9\localbroadcastmanager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\1dc9df8e70a38f62679d702ec717a6a9\localbroadcastmanager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\4fd4a6ed80eb447e76c05986ef3fd6a1\print-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\4fd4a6ed80eb447e76c05986ef3fd6a1\print-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\d107c5806233895e5be684de327d381f\versionedparcelable-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\d107c5806233895e5be684de327d381f\versionedparcelable-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\0160f619c43aa1ecd28ae91ba8993552\runtime-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\0160f619c43aa1ecd28ae91ba8993552\runtime-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\823f37c489bd02c4a4d0f6ca442a27d7\viewmodel-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\823f37c489bd02c4a4d0f6ca442a27d7\viewmodel-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\f33d666ad8cee70ee4e661f9bad8e372\livedata-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\f33d666ad8cee70ee4e661f9bad8e372\livedata-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\85526c118dcfe3eae0cf402e2cecc572\livedata-core-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\85526c118dcfe3eae0cf402e2cecc572\livedata-core-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\5853616defd81755613306a8befefe63\runtime-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\numbe\.gradle\caches\transforms-2\files-2.1\5853616defd81755613306a8befefe63\runtime-1.1.1\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml

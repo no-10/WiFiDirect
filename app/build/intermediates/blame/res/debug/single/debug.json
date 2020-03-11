@@ -1,0 +1,106 @@
+[
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-ldpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_icon.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-mdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_action_on_off.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-hdpi\\ic_action_on_off.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable_section_header.xml.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable\\section_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_action_discover.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-ldpi\\ic_action_discover.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_icon.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-ldpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\menu_action_items.xml.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\menu\\action_items.xml"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_action_discover.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-hdpi\\ic_action_discover.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_action_on_off.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-mdpi\\ic_action_on_off.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable_details_view.xml.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable\\details_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_action_on_off.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_on_off.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\layout-land_main.xml.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\layout-land\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\layout_device_list.xml.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\layout\\device_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\layout_device_detail.xml.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\layout\\device_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_action_discover.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-mdpi\\ic_action_discover.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_action_on_off.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-ldpi\\ic_action_on_off.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\layout_row_devices.xml.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\layout\\row_devices.xml"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable_machine.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable\\machine.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\xml_provider_paths.xml.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\xml\\provider_paths.xml"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\layout_main.xml.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\layout\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_action_discover.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_discover.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_icon.png.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-hdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\layout-large_main.xml.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\layout-large\\main.xml"
+    }
+]
