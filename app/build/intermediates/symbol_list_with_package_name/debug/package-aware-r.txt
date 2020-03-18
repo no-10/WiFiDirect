@@ -69,6 +69,7 @@ id async
 id atn_direct_discover
 id atn_direct_enable
 id blocking
+id btn_begroupowner
 id btn_connect
 id btn_disconnect
 id btn_start_client
@@ -119,6 +120,7 @@ layout notification_template_part_time
 layout row_devices
 menu action_items
 string app_name
+string be_group_owner
 string client_text
 string connect_peer_button
 string disconnect_peer_button

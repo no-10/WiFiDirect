@@ -27,6 +27,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/disconnect_peer_button" />
             <Button
+                android:id="@+id/btn_begroupowner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/be_group_owner" />
+            <Button
                 android:id="@+id/btn_start_client"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

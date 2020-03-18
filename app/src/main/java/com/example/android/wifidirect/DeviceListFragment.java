@@ -202,6 +202,8 @@ public class DeviceListFragment extends ListFragment implements PeerListListener
         void connect(WifiP2pConfig config);
 
         void disconnect();
+
+        void beGroupOwner();
     }
 
 }

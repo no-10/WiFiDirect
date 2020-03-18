@@ -140,6 +140,8 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.action_items, menu);
         return true;
@@ -204,6 +206,7 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
 
     @Override
     public void connect(WifiP2pConfig config) {
+
         manager.connect(channel, config, new ActionListener() {
 
             @Override
@@ -238,6 +241,24 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
             }
 
         });
+    }
+
+    @Override
+    public void beGroupOwner(){
+        manager.createGroup(channel, new WifiP2pManager.ActionListener() {
+            @Override
+            public void onSuccess() {
+                Toast.makeText(WiFiDirectActivity.this, "Successful.",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(int reason) {
+                Toast.makeText(WiFiDirectActivity.this, "Failed. Retry.",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override

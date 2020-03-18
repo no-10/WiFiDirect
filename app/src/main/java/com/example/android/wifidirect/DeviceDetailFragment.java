@@ -100,6 +100,16 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                     }
                 });
 
+        mContentView.findViewById(R.id.btn_begroupowner).setOnClickListener(
+                new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        ((DeviceActionListener) getActivity()).beGroupOwner();
+                    }
+                });
+
+
         mContentView.findViewById(R.id.btn_start_client).setOnClickListener(
                 new View.OnClickListener() {
 
@@ -228,8 +238,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                 Socket client = serverSocket.accept();
                 Log.d(WiFiDirectActivity.TAG, "Server: connection done");
                 final File f = new File(context.getExternalFilesDir("received"),
-                        "wifip2pshared-" + System.currentTimeMillis()
-                        + ".jpg");
+                        "wifip2pshared-" + System.currentTimeMillis() + ".jpg");
 
                 File dirs = new File(f.getParent());
                 if (!dirs.exists())
