@@ -18,8 +18,10 @@ package com.example.android.wifidirect;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.net.wifi.WpsInfo;
 import android.net.wifi.p2p.WifiP2pConfig;
@@ -37,6 +39,8 @@ import android.widget.TextView;
 
 import com.example.android.wifidirect.DeviceListFragment.DeviceActionListener;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -51,7 +55,9 @@ import java.net.Socket;
  */
 public class DeviceDetailFragment extends Fragment implements ConnectionInfoListener {
 
-    protected static final int CHOOSE_FILE_RESULT_CODE = 20;
+    protected static final int REQUEST_CODE_IMAGE = 111;
+    protected static final int REQUEST_CODE_VIDEO = 222;
+    protected static final int REQUEST_CODE_AUDIO = 333;
     private View mContentView = null;
     private WifiP2pDevice device;
     private WifiP2pInfo info;
@@ -110,7 +116,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                 });
 
 
-        mContentView.findViewById(R.id.btn_start_client).setOnClickListener(
+        mContentView.findViewById(R.id.btn_send_image).setOnClickListener(
                 new View.OnClickListener() {
 
                     @Override
@@ -119,10 +125,45 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                         // registered apps
                         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                         intent.setType("image/*");
-                        startActivityForResult(intent, CHOOSE_FILE_RESULT_CODE);
+                        startActivityForResult(intent, REQUEST_CODE_IMAGE);
                     }
                 });
+        mContentView.findViewById(R.id.btn_send_video).setOnClickListener(
+                new View.OnClickListener() {
 
+                    @Override
+                    public void onClick(View v) {
+                        // Allow user to pick an image from Gallery or other
+                        // registered apps
+                        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                        intent.setType("video/*");
+                        startActivityForResult(intent, REQUEST_CODE_IMAGE);
+                    }
+                });
+        mContentView.findViewById(R.id.btn_send_audio).setOnClickListener(
+                new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        // Allow user to pick an image from Gallery or other
+                        // registered apps
+                        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                        intent.setType("audio/*");
+                        startActivityForResult(intent, REQUEST_CODE_IMAGE);
+                    }
+                });
+        mContentView.findViewById(R.id.btn_send_document).setOnClickListener(
+                new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        // Allow user to pick an image from Gallery or other
+                        // registered apps
+                        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                        intent.setType("*/*");
+                        startActivityForResult(intent, REQUEST_CODE_IMAGE);
+                    }
+                });
         return mContentView;
     }
 
@@ -141,6 +182,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_ADDRESS,
                 info.groupOwnerAddress.getHostAddress());
         serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_PORT, 8988);
+        serviceIntent.putExtra("REQUEST_CODE", requestCode);
         getActivity().startService(serviceIntent);
     }
 
@@ -171,7 +213,10 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         } else if (info.groupFormed) {
             // The other device acts as the client. In this case, we enable the
             // get file button.
-            mContentView.findViewById(R.id.btn_start_client).setVisibility(View.VISIBLE);
+            mContentView.findViewById(R.id.btn_send_image).setVisibility(View.VISIBLE);
+            mContentView.findViewById(R.id.btn_send_video).setVisibility(View.VISIBLE);
+            mContentView.findViewById(R.id.btn_send_audio).setVisibility(View.VISIBLE);
+            mContentView.findViewById(R.id.btn_send_document).setVisibility(View.VISIBLE);
             ((TextView) mContentView.findViewById(R.id.status_text)).setText(getResources()
                     .getString(R.string.client_text));
         }
@@ -208,7 +253,13 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         view.setText(R.string.empty);
         view = (TextView) mContentView.findViewById(R.id.status_text);
         view.setText(R.string.empty);
-        mContentView.findViewById(R.id.btn_start_client).setVisibility(View.GONE);
+        mContentView.findViewById(R.id.btn_send_image).setVisibility(View.GONE);
+        view.setText(R.string.empty);
+        mContentView.findViewById(R.id.btn_send_video).setVisibility(View.GONE);
+        view.setText(R.string.empty);
+        mContentView.findViewById(R.id.btn_send_audio).setVisibility(View.GONE);
+        view.setText(R.string.empty);
+        mContentView.findViewById(R.id.btn_send_document).setVisibility(View.GONE);
         this.getView().setVisibility(View.GONE);
     }
 
@@ -220,6 +271,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 
         private Context context;
         private TextView statusText;
+        private int requestCode;
 
         /**
          * @param context
@@ -237,19 +289,35 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                 Log.d(WiFiDirectActivity.TAG, "Server: Socket opened");
                 Socket client = serverSocket.accept();
                 Log.d(WiFiDirectActivity.TAG, "Server: connection done");
-                final File f = new File(context.getExternalFilesDir("received"),
-                        "wifip2pshared-" + System.currentTimeMillis() + ".jpg");
 
-                File dirs = new File(f.getParent());
-                if (!dirs.exists())
-                    dirs.mkdirs();
-                f.createNewFile();
+                DataInputStream dis;
+                FileOutputStream fos;
 
-                Log.d(WiFiDirectActivity.TAG, "server: copying files " + f.toString());
-                InputStream inputstream = client.getInputStream();
-                copyFile(inputstream, new FileOutputStream(f));
+                dis = new DataInputStream(client.getInputStream());
+                String fileName = dis.readUTF();
+                long directory = dis.readLong();
+                requestCode = dis.readInt();
+                System.out.println(requestCode+" "+fileName+" "+directory);
+                final File file = new File(context.getExternalFilesDir("received"),
+                        System.currentTimeMillis()+"-"+fileName);
+                System.out.println(file.getAbsolutePath());
+                fos = new FileOutputStream(file);
+
+                Log.d(WiFiDirectActivity.TAG, "Server: accept transmission.");
+                byte[] bytes = new byte[1024];
+                int length = 0;
+                while((length = dis.read(bytes, 0, bytes.length)) != -1) {
+                    fos.write(bytes, 0, length);
+                    fos.flush();
+                }
+                Log.d(WiFiDirectActivity.TAG, "Server: transmission finished.");
+
+                if(fos != null)
+                    fos.close();
+                if(dis != null)
+                    dis.close();
                 serverSocket.close();
-                return f.getAbsolutePath();
+                return file.getAbsolutePath();
             } catch (IOException e) {
                 Log.e(WiFiDirectActivity.TAG, e.getMessage());
                 return null;
@@ -272,7 +340,16 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                                 recvFile);
                 Intent intent = new Intent();
                 intent.setAction(android.content.Intent.ACTION_VIEW);
-                intent.setDataAndType(fileUri, "image/*");
+                switch (requestCode) {
+                    case 111:
+                        intent.setDataAndType(fileUri, "image/*");
+                    case 222:
+                        intent.setDataAndType(fileUri, "video/*");
+                    case 333:
+                        intent.setDataAndType(fileUri, "audio/*");
+                    default:
+                        intent.setDataAndType(fileUri, "*/*");
+                }
                 intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 context.startActivity(intent);
             }

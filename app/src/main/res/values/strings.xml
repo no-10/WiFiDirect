@@ -6,7 +6,10 @@
     <string name="connect_peer_button">Connect</string>
     <string name="disconnect_peer_button">Disconnect</string>
     <string name="be_group_owner">Be GroupOwner</string>
-    <string name="get_file_button">Launch Gallery</string>
+    <string name="get_image_button">Send Image</string>
+    <string name="get_video_button">Send Video</string>
+    <string name="get_audio_button">Send Audio</string>
+    <string name="get_document_button">Send Document</string>
     <string name="empty"></string>
     <string name="yes">yes</string>
     <string name="no">no</string>

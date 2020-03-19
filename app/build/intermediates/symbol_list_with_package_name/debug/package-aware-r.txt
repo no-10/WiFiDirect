@@ -72,7 +72,10 @@ id blocking
 id btn_begroupowner
 id btn_connect
 id btn_disconnect
-id btn_start_client
+id btn_send_audio
+id btn_send_document
+id btn_send_image
+id btn_send_video
 id chronometer
 id device_address
 id device_details
@@ -128,7 +131,10 @@ string discover_peers_button
 string empty
 string empty_message
 string enable_p2p_button
-string get_file_button
+string get_audio_button
+string get_document_button
+string get_image_button
+string get_video_button
 string group_owner_text
 string label_me
 string label_peers

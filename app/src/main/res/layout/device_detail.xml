@@ -32,10 +32,35 @@
                 android:layout_height="wrap_content"
                 android:text="@string/be_group_owner" />
             <Button
-                android:id="@+id/btn_start_client"
+                android:id="@+id/btn_send_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/get_file_button"
+                android:text="@string/get_image_button"
+                android:visibility="gone" />
+
+        </LinearLayout>
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_send_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/get_video_button"
+                android:visibility="gone" />
+            <Button
+                android:id="@+id/btn_send_audio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/get_audio_button"
+                android:visibility="gone" />
+            <Button
+                android:id="@+id/btn_send_document"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/get_document_button"
                 android:visibility="gone" />
         </LinearLayout>
         <TextView
@@ -60,7 +85,7 @@
         android:id="@+id/status_bar"
         android:orientation="vertical"
         android:layout_gravity="bottom"
-        android:layout_height="37dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="3dp"
         android:background="@android:color/background_dark">
         <TextView
