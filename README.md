@@ -16,6 +16,12 @@ Function 1 and 2 were finished.
 
 
 
+## Download
+
+Debug apk: https://github.com/no-10/WiFiDirect/raw/master/app/build/outputs/apk/debug/app-debug.apk
+
+
+
 ## Referenced code
 
 Wi-Fi Direct (peer-to-peer or P2P) overview. Google. https://developer.android.com/guide/topics/connectivity/wifip2p?hl=en
