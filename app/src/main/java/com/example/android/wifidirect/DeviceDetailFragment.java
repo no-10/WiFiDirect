@@ -18,6 +18,7 @@ package com.example.android.wifidirect;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.ClipData;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -30,6 +31,7 @@ import android.net.wifi.p2p.WifiP2pInfo;
 import android.net.wifi.p2p.WifiP2pManager.ConnectionInfoListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -58,6 +60,8 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
     protected static final int REQUEST_CODE_IMAGE = 111;
     protected static final int REQUEST_CODE_VIDEO = 222;
     protected static final int REQUEST_CODE_AUDIO = 333;
+    protected static final int REQUEST_CODE_DOCUMENT = 444;
+    private static final int RESULT_OK = 1;
     private View mContentView = null;
     private WifiP2pDevice device;
     private WifiP2pInfo info;
@@ -123,9 +127,12 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                     public void onClick(View v) {
                         // Allow user to pick an image from Gallery or other
                         // registered apps
-                        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+
+                        Intent intent = new Intent();
                         intent.setType("image/*");
-                        startActivityForResult(intent, REQUEST_CODE_IMAGE);
+                        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                        intent.setAction(Intent.ACTION_GET_CONTENT);
+                        startActivityForResult(Intent.createChooser(intent,"Select Picture"), REQUEST_CODE_IMAGE);
                     }
                 });
         mContentView.findViewById(R.id.btn_send_video).setOnClickListener(
@@ -137,7 +144,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                         // registered apps
                         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                         intent.setType("video/*");
-                        startActivityForResult(intent, REQUEST_CODE_IMAGE);
+                        startActivityForResult(intent, REQUEST_CODE_VIDEO);
                     }
                 });
         mContentView.findViewById(R.id.btn_send_audio).setOnClickListener(
@@ -149,7 +156,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                         // registered apps
                         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                         intent.setType("audio/*");
-                        startActivityForResult(intent, REQUEST_CODE_IMAGE);
+                        startActivityForResult(intent, REQUEST_CODE_AUDIO);
                     }
                 });
         mContentView.findViewById(R.id.btn_send_document).setOnClickListener(
@@ -161,29 +168,65 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                         // registered apps
                         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                         intent.setType("*/*");
-                        startActivityForResult(intent, REQUEST_CODE_IMAGE);
+                        startActivityForResult(intent, REQUEST_CODE_DOCUMENT);
                     }
                 });
         return mContentView;
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
         // User has picked an image. Transfer it to group owner i.e peer using
         // FileTransferService.
-        Uri uri = data.getData();
-        TextView statusText = (TextView) mContentView.findViewById(R.id.status_text);
-        statusText.setText("Sending: " + uri);
-        Log.d(WiFiDirectActivity.TAG, "Intent----------- " + uri);
-        Intent serviceIntent = new Intent(getActivity(), FileTransferService.class);
-        serviceIntent.setAction(FileTransferService.ACTION_SEND_FILE);
-        serviceIntent.putExtra(FileTransferService.EXTRAS_FILE_PATH, uri.toString());
-        serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_ADDRESS,
-                info.groupOwnerAddress.getHostAddress());
-        serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_PORT, 8988);
-        serviceIntent.putExtra("REQUEST_CODE", requestCode);
-        getActivity().startService(serviceIntent);
+        Uri uri;
+        if (requestCode==REQUEST_CODE_IMAGE && data != null){
+            ClipData imageNames = data.getClipData();
+            if (imageNames != null){
+                for (int i=0; i<imageNames.getItemCount(); i++){
+                    Uri imageUri = imageNames.getItemAt(i).getUri();
+                    System.out.println(imageUri);
+                }
+                uri = imageNames.getItemAt(0).getUri();
+                TextView statusText = (TextView) mContentView.findViewById(R.id.status_text);
+                statusText.setText("Sending: " + uri);
+                Log.d(WiFiDirectActivity.TAG, "Intent----------- " + uri);
+                Intent serviceIntent = new Intent(getActivity(), FileTransferService.class);
+                serviceIntent.setAction(FileTransferService.ACTION_SEND_FILE);
+                serviceIntent.putExtra(FileTransferService.EXTRAS_FILE_PATH, uri.toString());
+                serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_ADDRESS,
+                        info.groupOwnerAddress.getHostAddress());
+                serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_PORT, 8988);
+                serviceIntent.putExtra("REQUEST_CODE", requestCode);
+                getActivity().startService(serviceIntent);
+            }else {
+                uri = data.getData();
+                TextView statusText = (TextView) mContentView.findViewById(R.id.status_text);
+                statusText.setText("Sending: " + uri);
+                Log.d(WiFiDirectActivity.TAG, "Intent----------- " + uri);
+                Intent serviceIntent = new Intent(getActivity(), FileTransferService.class);
+                serviceIntent.setAction(FileTransferService.ACTION_SEND_FILE);
+                serviceIntent.putExtra(FileTransferService.EXTRAS_FILE_PATH, uri.toString());
+                serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_ADDRESS,
+                        info.groupOwnerAddress.getHostAddress());
+                serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_PORT, 8988);
+                serviceIntent.putExtra("REQUEST_CODE", requestCode);
+                getActivity().startService(serviceIntent);
+            }
+        }else{
+            uri = data.getData();
+            TextView statusText = (TextView) mContentView.findViewById(R.id.status_text);
+            statusText.setText("Sending: " + uri);
+            Log.d(WiFiDirectActivity.TAG, "Intent----------- " + uri);
+            Intent serviceIntent = new Intent(getActivity(), FileTransferService.class);
+            serviceIntent.setAction(FileTransferService.ACTION_SEND_FILE);
+            serviceIntent.putExtra(FileTransferService.EXTRAS_FILE_PATH, uri.toString());
+            serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_ADDRESS,
+                    info.groupOwnerAddress.getHostAddress());
+            serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_PORT, 8988);
+            serviceIntent.putExtra("REQUEST_CODE", requestCode);
+            getActivity().startService(serviceIntent);
+        }
     }
 
     @Override
