@@ -31,6 +31,7 @@ import android.net.wifi.p2p.WifiP2pInfo;
 import android.net.wifi.p2p.WifiP2pManager.ConnectionInfoListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
@@ -50,6 +51,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A fragment that manages a particular peer and allows interaction with device
@@ -180,53 +183,41 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         // User has picked an image. Transfer it to group owner i.e peer using
         // FileTransferService.
         Uri uri;
+        List<String> fileList = new ArrayList<>();
+
         if (requestCode==REQUEST_CODE_IMAGE && data != null){
             ClipData imageNames = data.getClipData();
             if (imageNames != null){
                 for (int i=0; i<imageNames.getItemCount(); i++){
                     Uri imageUri = imageNames.getItemAt(i).getUri();
+                    fileList.add(imageUri.toString());
                     System.out.println(imageUri);
                 }
-                uri = imageNames.getItemAt(0).getUri();
-                TextView statusText = (TextView) mContentView.findViewById(R.id.status_text);
-                statusText.setText("Sending: " + uri);
-                Log.d(WiFiDirectActivity.TAG, "Intent----------- " + uri);
-                Intent serviceIntent = new Intent(getActivity(), FileTransferService.class);
-                serviceIntent.setAction(FileTransferService.ACTION_SEND_FILE);
-                serviceIntent.putExtra(FileTransferService.EXTRAS_FILE_PATH, uri.toString());
-                serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_ADDRESS,
-                        info.groupOwnerAddress.getHostAddress());
-                serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_PORT, 8988);
-                serviceIntent.putExtra("REQUEST_CODE", requestCode);
-                getActivity().startService(serviceIntent);
+                //uri = imageNames.getItemAt(0).getUri();
             }else {
                 uri = data.getData();
-                TextView statusText = (TextView) mContentView.findViewById(R.id.status_text);
-                statusText.setText("Sending: " + uri);
-                Log.d(WiFiDirectActivity.TAG, "Intent----------- " + uri);
-                Intent serviceIntent = new Intent(getActivity(), FileTransferService.class);
-                serviceIntent.setAction(FileTransferService.ACTION_SEND_FILE);
-                serviceIntent.putExtra(FileTransferService.EXTRAS_FILE_PATH, uri.toString());
-                serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_ADDRESS,
-                        info.groupOwnerAddress.getHostAddress());
-                serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_PORT, 8988);
-                serviceIntent.putExtra("REQUEST_CODE", requestCode);
-                getActivity().startService(serviceIntent);
+                fileList.add(uri.toString());
             }
         }else{
             uri = data.getData();
-            TextView statusText = (TextView) mContentView.findViewById(R.id.status_text);
-            statusText.setText("Sending: " + uri);
-            Log.d(WiFiDirectActivity.TAG, "Intent----------- " + uri);
-            Intent serviceIntent = new Intent(getActivity(), FileTransferService.class);
-            serviceIntent.setAction(FileTransferService.ACTION_SEND_FILE);
-            serviceIntent.putExtra(FileTransferService.EXTRAS_FILE_PATH, uri.toString());
-            serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_ADDRESS,
-                    info.groupOwnerAddress.getHostAddress());
-            serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_PORT, 8988);
-            serviceIntent.putExtra("REQUEST_CODE", requestCode);
-            getActivity().startService(serviceIntent);
+            fileList.add(uri.toString());
         }
+
+        TextView statusText = (TextView) mContentView.findViewById(R.id.status_text);
+        statusText.setText("Sending: " + fileList.toString());
+        Log.d(WiFiDirectActivity.TAG, "Intent----------- " + fileList.toString());
+        Intent serviceIntent = new Intent(getActivity(), FileTransferService.class);
+        serviceIntent.setAction(FileTransferService.ACTION_SEND_FILE);
+        //serviceIntent.putExtra(FileTransferService.EXTRAS_FILE_PATH, uri.toString());
+        serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_ADDRESS,
+                info.groupOwnerAddress.getHostAddress());
+        serviceIntent.putExtra(FileTransferService.EXTRAS_GROUP_OWNER_PORT, 8988);
+        serviceIntent.putExtra("REQUEST_CODE", requestCode);
+
+        String[] fileNames = fileList.toArray(new String[]{});
+        serviceIntent.putExtra("FILE_LIST",  fileNames);
+
+        getActivity().startService(serviceIntent);
     }
 
     @Override
@@ -399,10 +390,6 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 
         }
 
-        /*
-         * (non-Javadoc)
-         * @see android.os.AsyncTask#onPreExecute()
-         */
         @Override
         protected void onPreExecute() {
             statusText.setText("Opening a server socket");

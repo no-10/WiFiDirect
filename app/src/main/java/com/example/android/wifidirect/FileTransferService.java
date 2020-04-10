@@ -65,10 +65,18 @@ public class FileTransferService extends IntentService {
 
         Context context = getApplicationContext();
         if (intent.getAction().equals(ACTION_SEND_FILE)) {
-            String fileUri = intent.getExtras().getString(EXTRAS_FILE_PATH);
+
+            String[] fileNames = intent.getStringArrayExtra("FILE_LIST");
+
+            //debug
+            for (int i=0; i<fileNames.length; i++){
+                System.out.println("String[]:"+fileNames[i]);
+            }
+            String fileUri = fileNames[0];
+
             //String path = fileUri.substring(7);
             String host = intent.getExtras().getString(EXTRAS_GROUP_OWNER_ADDRESS);
-            int requestcode = intent.getIntExtra("REQUEST_CODE", 0);
+            int requestCode = intent.getIntExtra("REQUEST_CODE", 0);
             Socket socket = new Socket();
 
             int port = intent.getExtras().getInt(EXTRAS_GROUP_OWNER_PORT);
@@ -107,7 +115,7 @@ public class FileTransferService extends IntentService {
                             dos.flush();
                             dos.writeLong(file.length());
                             dos.flush();
-                            dos.writeInt(requestcode);
+                            dos.writeInt(requestCode);
                             dos.flush();
                         }else {
                             Log.d(WiFiDirectActivity.TAG, "Client: Uri cannot transfer to the file path.");
@@ -122,7 +130,7 @@ public class FileTransferService extends IntentService {
                         dos.flush();
                         dos.writeLong(file.length());
                         dos.flush();
-                        dos.writeInt(requestcode);
+                        dos.writeInt(requestCode);
                         dos.flush();
                         break;
                     default:
