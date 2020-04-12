@@ -322,38 +322,107 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                 ServerSocket serverSocket = new ServerSocket(8988);
                 Log.d(WiFiDirectActivity.TAG, "Server: Socket opened");
                 Socket client = serverSocket.accept();
+                client.setSoTimeout(5000);
                 Log.d(WiFiDirectActivity.TAG, "Server: connection done");
 
                 DataInputStream dis;
-                FileOutputStream fos;
 
                 dis = new DataInputStream(client.getInputStream());
-                String fileName = dis.readUTF();
-                long directory = dis.readLong();
                 requestCode = dis.readInt();
-                System.out.println(requestCode+" "+fileName+" "+directory);
-                final File file = new File(context.getExternalFilesDir("received"),
-                        System.currentTimeMillis()+"-"+fileName);
-                System.out.println(file.getAbsolutePath());
-                fos = new FileOutputStream(file);
+                int numOfFiles = dis.readInt();
+                System.out.println(requestCode);
+                System.out.println(numOfFiles);
+                //String fileName = dis.readUTF();
+                //long directory = dis.readLong();
 
-                Log.d(WiFiDirectActivity.TAG, "Server: accept transmission.");
-                byte[] bytes = new byte[1024];
-                int length = 0;
-                while((length = dis.read(bytes, 0, bytes.length)) != -1) {
-                    fos.write(bytes, 0, length);
+                File file2 = null;
+
+                for (int i=0; i<numOfFiles; i++){
+
+                    byte[] fileMessageByte = new byte[149];
+                    System.out.println("-------------------1111");
+
+                    int headerLength = dis.read(fileMessageByte,0,fileMessageByte.length);
+                    String fileMessage = new String(fileMessageByte);
+
+                    System.out.println(fileMessage);
+                    String fileNameWithSpace = fileMessage.split("--")[1];
+                    String fileName = fileNameWithSpace.split(" ")[0];
+                    long fileLength = Long.parseLong(fileMessage.split("--")[2]);
+                    System.out.println(fileLength);
+
+                    System.out.println(requestCode+" "+fileName+" "+fileLength);
+
+                    File file = new File(context.getExternalFilesDir("received"),
+                            System.currentTimeMillis()+"-"+fileName);
+                    if (i==0){
+                        file2 = new File(context.getExternalFilesDir("received"),
+                                System.currentTimeMillis()+"-"+fileName);
+                    }
+                    System.out.println(file.getAbsolutePath());
+                    FileOutputStream fos = null;
+                    fos = new FileOutputStream(file);
+
+                    Log.d(WiFiDirectActivity.TAG, "Server: accept transmission.");
+
+
+                    byte[] bytes = new byte[1024];
+                    int length = 0;
+                    long progress = 0;
+
+                    while(((length = dis.read(bytes, 0, bytes.length)) != -1)) {
+
+                        fos.write(bytes, 0, length);
+                        fos.flush();
+                        progress += length;
+
+                        if (length!=1024) System.out.println(length);
+                        fileLength -= length;
+                        if (fileLength == 0){
+                            break;
+                        }
+                        if (fileLength < bytes.length){
+                            bytes = new byte[(int)fileLength];
+                        }
+                    }
+                    System.out.println(progress+" "+fileLength);
+                    /*
+                    for (int j=0; j<(fileLength/1024); j++){
+                        length=dis.read(bytes, 0, bytes.length);
+                        progress += length;
+                        fos.write(bytes, 0, length);
+                        fos.flush();
+                    }
+                    byte[] tailData = new byte[(int)fileLength%1024];
+                    length=dis.read(tailData, 0, tailData.length);
+                    progress += length;
+                    fos.write(tailData, 0, length);
                     fos.flush();
-                }
-                Log.d(WiFiDirectActivity.TAG, "Server: transmission finished.");
 
-                if(fos != null)
-                    fos.close();
+                    System.out.println(progress);
+                    */
+
+                    Log.d(WiFiDirectActivity.TAG, "Server: transmission finished.");
+                    System.out.println("-------------------1");
+
+                    if(fos != null) {
+                        System.out.println("-------------------11");
+                        fos.close();
+                    }
+                    System.out.println("-------------------111");
+                }
+                System.out.println("-------------------2");
+
+                System.out.println("-------------------3");
                 if(dis != null)
                     dis.close();
+                System.out.println("-------------------4");
                 serverSocket.close();
-                return file.getAbsolutePath();
+                System.out.println("-------------------5");
+
+                return file2.getAbsolutePath();
             } catch (IOException e) {
-                Log.e(WiFiDirectActivity.TAG, e.getMessage());
+                //Log.e(WiFiDirectActivity.TAG, e.getMessage());
                 return null;
             }
         }

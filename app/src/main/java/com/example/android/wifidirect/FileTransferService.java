@@ -68,11 +68,6 @@ public class FileTransferService extends IntentService {
 
             String[] fileNames = intent.getStringArrayExtra("FILE_LIST");
 
-            //debug
-            for (int i=0; i<fileNames.length; i++){
-                System.out.println("String[]:"+fileNames[i]);
-            }
-            String fileUri = fileNames[0];
 
             //String path = fileUri.substring(7);
             String host = intent.getExtras().getString(EXTRAS_GROUP_OWNER_ADDRESS);
@@ -85,72 +80,107 @@ public class FileTransferService extends IntentService {
                 Log.d(WiFiDirectActivity.TAG, "Opening client socket - ");
                 socket.bind(null);
                 socket.connect((new InetSocketAddress(host, port)), SOCKET_TIMEOUT);
+                DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
                 Log.d(WiFiDirectActivity.TAG, "Client socket - " + socket.isConnected());
 
                 ContentResolver cr = context.getContentResolver();
                 InputStream is = null;
-                try {
-
-                    is = cr.openInputStream(Uri.parse(fileUri));
-                } catch (FileNotFoundException e) {
-                    Log.d(WiFiDirectActivity.TAG, e.toString());
-                }
-
-                FileInputStream fis = (FileInputStream)is;
-                DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
                 //Uri uri = Uri.parse(fileUri);
                 File file;
 
-                switch (fileUri.charAt(0)){
-                    case 'c':
-                        String filePath = getPathFromUri(context, Uri.parse(fileUri));
+                dos.writeInt(requestCode);
+                //dos.flush();
+                dos.writeInt(fileNames.length);
+                //dos.flush();
 
-                        if (filePath != null){
-                            file = new File(filePath);
+                for (int i=0; i<fileNames.length; i++){
+                    System.out.println("String[]:"+fileNames[i]);
+
+                    String fileUri = fileNames[i];
+                    int fileLength = 0;
+                    try {
+
+                        is = cr.openInputStream(Uri.parse(fileUri));
+                    } catch (FileNotFoundException e) {
+                        Log.d(WiFiDirectActivity.TAG, e.toString());
+                    }
+                    FileInputStream fis = (FileInputStream)is;
+
+                    switch (fileUri.charAt(0)){
+                        case 'c':
+                            String filePath = getPathFromUri(context, Uri.parse(fileUri));
+
+                            if (filePath != null){
+                                file = new File(filePath);
+                                fileLength = (int)file.length();
+                                System.out.println("the filelength is "+fileLength);
+                                Log.d(WiFiDirectActivity.TAG, "Client: The file path "
+                                        + file.getAbsolutePath() + " is "
+                                        + file.exists());
+
+                                String fileMessage = String.format("Start--%-128s--%012d",file.getName(),file.length());
+                                System.out.println(fileMessage);
+                                System.out.println(fileMessage.getBytes().length);
+                                System.out.println(file.length());
+                                dos.write(fileMessage.getBytes(),0,fileMessage.getBytes().length);
+                                dos.flush();
+                                //dos.writeUTF(fileMessage);
+                                //dos.flush();
+
+                            }else {
+                                Log.d(WiFiDirectActivity.TAG, "Client: Uri cannot transfer to the file path.");
+                            }
+                            break;
+                        case 'f':
+                            file = new File(fileUri.substring(7));
+                            fileLength = (int)file.length();
+                            System.out.println("the filelength is "+fileLength);
                             Log.d(WiFiDirectActivity.TAG, "Client: The file path "
                                     + file.getAbsolutePath() + " is "
                                     + file.exists());
-                            dos.writeUTF(file.getName());
-                            dos.flush();
-                            dos.writeLong(file.length());
-                            dos.flush();
-                            dos.writeInt(requestCode);
-                            dos.flush();
-                        }else {
-                            Log.d(WiFiDirectActivity.TAG, "Client: Uri cannot transfer to the file path.");
-                        }
-                        break;
-                    case 'f':
-                        file = new File(fileUri.substring(7));
-                        Log.d(WiFiDirectActivity.TAG, "Client: The file path "
-                                + file.getAbsolutePath() + " is "
-                                + file.exists());
-                        dos.writeUTF(file.getName());
-                        dos.flush();
-                        dos.writeLong(file.length());
-                        dos.flush();
-                        dos.writeInt(requestCode);
-                        dos.flush();
-                        break;
-                    default:
-                        Log.d(WiFiDirectActivity.TAG, "Client: Cannot parse the Uri.");
 
+                            String fileMessage = String.format("Start--%-128s--%012d",file.getName(),file.length());
+                            System.out.println(fileMessage);
+                            System.out.println(fileMessage.getBytes().length);
+                            System.out.println(file.length());
+                            dos.write(fileMessage.getBytes(),0,fileMessage.getBytes().length);
+                            dos.flush();
+                            //dos.writeUTF(fileMessage);
+                            //dos.flush();
+                            break;
+                        default:
+                            Log.d(WiFiDirectActivity.TAG, "Client: Cannot parse the Uri.");
+
+                    }
+
+                    Log.d(WiFiDirectActivity.TAG, "Client: Start transmission.");
+
+                    byte[] bytes = new byte[1024];
+                    int length = 0;
+                    long progress = 0;
+
+                    while((length = fis.read(bytes, 0, bytes.length)) != -1) {
+                        if (length!=1024) System.out.println(length);
+                        dos.write(bytes, 0, length);
+                        dos.flush();
+                        progress += length;
+                    }
+
+                    //String endFlag =  String.format("%-3s","end");
+                    //System.out.println("the length of endflag is "+endFlag.getBytes().length);
+                    //dos.write(endFlag.getBytes(), 0, endFlag.getBytes().length);
+                    //dos.flush();
+                    //progress += endFlag.getBytes().length;
+
+                    System.out.println(progress);
+
+                    Log.d(WiFiDirectActivity.TAG, "Client: Data written");
+
+                    if(fis != null)
+                        fis.close();
                 }
 
-                Log.d(WiFiDirectActivity.TAG, "Client: Start transmission.");
-                byte[] bytes = new byte[1024];
-                int length = 0;
-                long progress = 0;
-                while((length = fis.read(bytes, 0, bytes.length)) != -1) {
-                    dos.write(bytes, 0, length);
-                    dos.flush();
-                    progress += length;
-                }
-                Log.d(WiFiDirectActivity.TAG, "Client: Data written");
-
-                if(fis != null)
-                    fis.close();
                 if(dos != null)
                     dos.close();
 
