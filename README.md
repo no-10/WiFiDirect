@@ -12,7 +12,7 @@ This app was wrote for my undergraduate final year project. The app can transfer
 4. All clients can transfer files to group owner. (Not determined) 
 5. An **elegant** UI and a **smooth** operation experience.
 
-Function 1 and 2 were finished.
+Function 1，2，3 and 4 were finished.
 
 
 
