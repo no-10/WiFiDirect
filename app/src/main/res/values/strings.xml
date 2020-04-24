@@ -3,9 +3,9 @@
     <string name="app_name">WiFi Direct</string>
     <string name="enable_p2p_button">P2P On/Off</string>
     <string name="discover_peers_button">Discover</string>
-    <string name="connect_peer_button">Connect</string>
+    <string name="connect_peer_button">Send</string>
     <string name="disconnect_peer_button">Disconnect</string>
-    <string name="be_group_owner">Be GroupOwner</string>
+    <string name="be_group_owner">Receive</string>
     <string name="get_image_button">Send Image</string>
     <string name="get_video_button">Send Video</string>
     <string name="get_audio_button">Send Audio</string>

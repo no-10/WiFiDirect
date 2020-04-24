@@ -104,15 +104,6 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
             }
         });
 
-        mContentView.findViewById(R.id.btn_disconnect).setOnClickListener(
-                new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        ((DeviceActionListener) getActivity()).disconnect();
-                    }
-                });
-
         mContentView.findViewById(R.id.btn_begroupowner).setOnClickListener(
                 new View.OnClickListener() {
 
@@ -122,6 +113,14 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                     }
                 });
 
+        mContentView.findViewById(R.id.btn_disconnect).setOnClickListener(
+                new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        ((DeviceActionListener) getActivity()).disconnect();
+                    }
+                });
 
         mContentView.findViewById(R.id.btn_send_image).setOnClickListener(
                 new View.OnClickListener() {
@@ -244,6 +243,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         if (info.groupFormed && info.isGroupOwner) {
             new FileServerAsyncTask(getActivity(), mContentView.findViewById(R.id.status_text))
                     .execute();
+            //mContentView.findViewById(R.id.btn_begroupowner).setVisibility(View.GONE);
         } else if (info.groupFormed) {
             // The other device acts as the client. In this case, we enable the
             // get file button.
@@ -257,6 +257,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 
         // hide the connect button
         mContentView.findViewById(R.id.btn_connect).setVisibility(View.GONE);
+        mContentView.findViewById(R.id.btn_begroupowner).setVisibility(View.GONE);
     }
 
     /**
@@ -279,6 +280,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
      */
     public void resetViews() {
         mContentView.findViewById(R.id.btn_connect).setVisibility(View.VISIBLE);
+        mContentView.findViewById(R.id.btn_begroupowner).setVisibility(View.VISIBLE);
         TextView view = (TextView) mContentView.findViewById(R.id.device_address);
         view.setText(R.string.empty);
         view = (TextView) mContentView.findViewById(R.id.device_info);
@@ -403,22 +405,14 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                     */
 
                     Log.d(WiFiDirectActivity.TAG, "Server: transmission finished.");
-                    System.out.println("-------------------1");
 
                     if(fos != null) {
-                        System.out.println("-------------------11");
                         fos.close();
                     }
-                    System.out.println("-------------------111");
                 }
-                System.out.println("-------------------2");
-
-                System.out.println("-------------------3");
                 if(dis != null)
                     dis.close();
-                System.out.println("-------------------4");
                 serverSocket.close();
-                System.out.println("-------------------5");
 
                 return file2.getAbsolutePath();
             } catch (IOException e) {
@@ -482,5 +476,4 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         }
         return true;
     }
-
 }

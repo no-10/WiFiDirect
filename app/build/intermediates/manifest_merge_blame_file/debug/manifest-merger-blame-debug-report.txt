@@ -56,53 +56,54 @@
 30-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:20:9-45
 31        android:label="@string/app_name"
 31-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:21:9-41
-32        android:theme="@android:style/Theme.Holo" >
-32-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:22:9-50
-33        <activity
-33-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:23:9-32:20
-34            android:name="com.example.android.wifidirect.WiFiDirectActivity"
-34-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:24:13-47
-35            android:label="@string/app_name"
-35-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:25:13-45
-36            android:launchMode="singleTask" >
-36-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:25:46-77
-37            <intent-filter>
-37-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:26:13-31:29
-38                <action android:name="android.intent.action.MAIN" />
-38-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:27:17-28:65
-38-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:28:21-62
-39
-40                <category android:name="android.intent.category.LAUNCHER" />
-40-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:29:17-30:71
-40-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:30:21-68
-41            </intent-filter>
-42        </activity>
-43
-44        <provider
-44-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:34:9-42:20
-45            android:name="android.support.v4.content.FileProvider"
-45-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:35:13-67
-46            android:authorities="com.example.android.wifidirect.fileprovider"
-46-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:36:13-78
-47            android:exported="false"
-47-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:37:13-37
-48            android:grantUriPermissions="true" >
-48-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:38:13-47
-49            <meta-data
-49-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:39:13-41:58
-50                android:name="android.support.FILE_PROVIDER_PATHS"
-50-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:40:17-67
-51                android:resource="@xml/provider_paths" />
-51-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:41:17-55
-52        </provider>
-53
-54        <!-- Used for transferring files  after a successful connection -->
-55        <service
-55-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:45:9-79
-56            android:name="com.example.android.wifidirect.FileTransferService"
-56-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:45:41-76
-57            android:enabled="true" />
-57-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:45:18-40
-58    </application>
-59
-60</manifest>
+32        android:testOnly="true"
+33        android:theme="@android:style/Theme.Holo" >
+33-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:22:9-50
+34        <activity
+34-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:23:9-32:20
+35            android:name="com.example.android.wifidirect.WiFiDirectActivity"
+35-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:24:13-47
+36            android:label="@string/app_name"
+36-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:25:13-45
+37            android:launchMode="singleTask" >
+37-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:25:46-77
+38            <intent-filter>
+38-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:26:13-31:29
+39                <action android:name="android.intent.action.MAIN" />
+39-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:27:17-28:65
+39-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:28:21-62
+40
+41                <category android:name="android.intent.category.LAUNCHER" />
+41-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:29:17-30:71
+41-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:30:21-68
+42            </intent-filter>
+43        </activity>
+44
+45        <provider
+45-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:34:9-42:20
+46            android:name="android.support.v4.content.FileProvider"
+46-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:35:13-67
+47            android:authorities="com.example.android.wifidirect.fileprovider"
+47-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:36:13-78
+48            android:exported="false"
+48-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:37:13-37
+49            android:grantUriPermissions="true" >
+49-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:38:13-47
+50            <meta-data
+50-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:39:13-41:58
+51                android:name="android.support.FILE_PROVIDER_PATHS"
+51-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:40:17-67
+52                android:resource="@xml/provider_paths" />
+52-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:41:17-55
+53        </provider>
+54
+55        <!-- Used for transferring files  after a successful connection -->
+56        <service
+56-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:45:9-79
+57            android:name="com.example.android.wifidirect.FileTransferService"
+57-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:45:41-76
+58            android:enabled="true" />
+58-->C:\Users\numbe\AndroidStudioProjects\WifiDirectDemo\app\src\main\AndroidManifest.xml:45:18-40
+59    </application>
+60
+61</manifest>

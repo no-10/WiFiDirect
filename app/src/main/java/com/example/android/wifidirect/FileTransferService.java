@@ -65,7 +65,7 @@ public class FileTransferService extends IntentService {
 
         Context context = getApplicationContext();
         if (intent.getAction().equals(ACTION_SEND_FILE)) {
-
+            //Get all file names.
             String[] fileNames = intent.getStringArrayExtra("FILE_LIST");
 
 
