@@ -198,7 +198,6 @@ public class FileTransferService extends IntentService {
                     }
                 }
             }
-
         }
     }
 

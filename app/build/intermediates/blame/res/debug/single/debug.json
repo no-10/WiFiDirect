@@ -16,6 +16,10 @@
         "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable_button_connection.xml.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable\\button_connection.xml"
+    },
+    {
         "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable_section_header.xml.flat",
         "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable\\section_header.xml"
     },
@@ -70,6 +74,10 @@
     {
         "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_action_on_off.png.flat",
         "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable-ldpi\\ic_action_on_off.png"
+    },
+    {
+        "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable_button_send.xml.flat",
+        "source": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\src\\main\\res\\drawable\\button_send.xml"
     },
     {
         "merged": "C:\\Users\\numbe\\AndroidStudioProjects\\WifiDirectDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",

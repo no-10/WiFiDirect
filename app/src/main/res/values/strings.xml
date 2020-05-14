@@ -11,10 +11,8 @@
     <string name="get_audio_button">Send Audio</string>
     <string name="get_document_button">Send Document</string>
     <string name="empty"></string>
-    <string name="yes">yes</string>
-    <string name="no">no</string>
-    <string name="client_text">This device will act as a client. Click on Gallery button to pick a local(stored) file</string>
-    <string name="empty_message">No devices found. Turn on P2P and perform discovery from the Action Bar</string>
+    <string name="client_text">This device will act as a sender. Click on buttons to pick local files.</string>
+    <string name="empty_message">No devices found. Turn on P2P and perform discovery from the Action Bar.</string>
     <string name="p2p_off_warning">Enable P2P from action bar button above or system settings</string>
     <string name="group_owner_text">"Am I the Group Owner? "</string>
     <string name="label_me">ME</string>

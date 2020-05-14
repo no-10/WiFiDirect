@@ -232,12 +232,11 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
             @Override
             public void onFailure(int reasonCode) {
                 Log.d(TAG, "Disconnect failed. Reason :" + reasonCode);
-
             }
 
             @Override
             public void onSuccess() {
-                fragment.getView().setVisibility(View.GONE);
+                //fragment.getView().setVisibility(View.GONE);
             }
 
         });
@@ -275,7 +274,7 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
 
             @Override
             public void onFailure(int reason) {
-                Toast.makeText(WiFiDirectActivity.this, "Failed. Retry.",
+                Toast.makeText(WiFiDirectActivity.this, "You are ready to accept documents.",
                         Toast.LENGTH_SHORT).show();
             }
         });

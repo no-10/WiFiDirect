@@ -11,6 +11,8 @@ attr fontStyle
 attr fontVariationSettings
 attr fontWeight
 attr ttcIndex
+color button_connection
+color button_send
 color layout_border_color
 color notification_action_color_filter
 color notification_icon_bg_color
@@ -41,6 +43,8 @@ dimen notification_top_pad
 dimen notification_top_pad_large_text
 dimen phone_list_height
 dimen tablet_list_width
+drawable button_connection
+drawable button_send
 drawable details_view
 drawable ic_action_discover
 drawable ic_action_on_off
@@ -77,7 +81,6 @@ id btn_send_document
 id btn_send_image
 id btn_send_video
 id chronometer
-id device_address
 id device_details
 id device_info
 id device_name
@@ -93,6 +96,7 @@ id italic
 id line1
 id line3
 id linearLayout1
+id message
 id my_name
 id my_status
 id normal
@@ -138,10 +142,8 @@ string get_video_button
 string group_owner_text
 string label_me
 string label_peers
-string no
 string p2p_off_warning
 string status_bar_notification_info_overflow
-string yes
 style TextAppearance_Compat_Notification
 style TextAppearance_Compat_Notification_Info
 style TextAppearance_Compat_Notification_Line2
